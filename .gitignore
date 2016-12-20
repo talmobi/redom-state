@@ -1,1 +1,7 @@
 node_modules
+
+# ignore vim temp files
+*.sw?
+
+# this file is cfeated every time miru starts, used for live reloads
+miru.init.js

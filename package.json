@@ -7,6 +7,9 @@
     "dev": "node watch",
     "build-css": "stylus -u nib css/index.styl -c -o public/css/main.css",
     "build-js": "npm run lint && rollup -c -f iife js/index.js -o public/js/main.js",
+    "watch": "miru -p 'public' -t js/main.js -t css/main.css -s 'npm run watch-js' -s 'npm run watch-css'",
+    "watch-css": "stylus -w -u nib css/index.styl -c -o public/css/main.css",
+    "watch-js": "wrollup -c rollup.config.js",
     "lint": "semistandard js/**.js",
     "uglify-js": "cd public/js && uglifyjs main.js -cmo main.min.js --source-map main.map.js",
     "dist": "gh-pages -d public",
@@ -17,6 +20,7 @@
   "devDependencies": {
     "chokidar": "~1.6.1",
     "gh-pages": "~0.12.0",
+    "miru": "^0.6.0",
     "nib": "~1.1.2",
     "redom": "~1.7.0",
     "rollup": "~0.37.0",
@@ -24,7 +28,8 @@
     "rollup-plugin-node-resolve": "~2.0.0",
     "semistandard": "~9.2.1",
     "stylus": "~0.54.5",
-    "uglify-js": "~2.7.5"
+    "uglify-js": "~2.7.5",
+    "wrollup": "^0.1.17"
   },
   "dependencies": {
     "compression": "~1.6.2",
